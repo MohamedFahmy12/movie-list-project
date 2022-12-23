@@ -1,9 +1,11 @@
 import React from 'react';
+import { Row } from 'react-bootstrap';
 import MovieCard from './MovieCard';
+import Paginate from './Pagination';
 
-const MovieList = ({ movies }) => {
+const MovieList = ({ movies,pageCount,handlePagination }) => {
     return (
-        <div className="mt-3 d-flex flex-wrap">
+        <Row className="mt-3 d-flex flex-wrap">
             {movies.length > 0 ? (
                 movies.map((item) => {
                     return <MovieCard key={item.id} movie={item} />;
@@ -11,7 +13,9 @@ const MovieList = ({ movies }) => {
             ) : (
                 <h2 className="text-center p-5">لا يوجد افلام</h2>
             )}
-        </div>
+            <Paginate pageCount={pageCount} handlePagination={handlePagination} />
+
+        </Row>
     );
 };
 
