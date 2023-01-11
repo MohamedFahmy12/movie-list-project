@@ -25,7 +25,7 @@ function App() {
             '&language=ar&page=' + pageNumber
         );
         setmovies(res.data.results);
-        setCount(res.data.total_pages);
+        setCount(500);
     };
     const search = async (word, pageNumber = 1) => {
         setSearch(word);
