@@ -1,9 +1,20 @@
 import React from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
+import { useDispatch } from 'react-redux';
 import logo from '../images/logo.png';
-const NavBar = ({ search }) => {
+import { getAllMovie, searchMovies } from '../Redux/actions/movieActions';
+
+const NavBar = () => {
+    const dispatch = useDispatch();
     const onSearch = (word) => {
         search(word);
+    };
+    const search = (word) => {
+            if (word === '') {
+                dispatch(getAllMovie(1))
+                return;
+            }
+            dispatch(searchMovies(word,1))
     };
     return (
         <div className="nav-style w-100">
